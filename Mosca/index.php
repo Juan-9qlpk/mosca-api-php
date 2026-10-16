@@ -245,9 +245,7 @@ catch (Throwable $e)
 {
     http_response_code(500);
     echo json_encode([
-        'ErrorReal' => $e->getMessage(),
-        'Linea' => $e->getLine(),
-        'Archivo' => $e->getFile(),
+        'Error' => "Se ha producido un error de aplicación",
         'ok' => false
     ]);
 }
