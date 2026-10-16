@@ -23,9 +23,7 @@ Para consultar la especificación detallada de cada endpoint, ejemplos de payloa
 
 ## Configuración del Fichero `.env`
 
-El proyecto utiliza un archivo de variables de entorno (`.env`) situado en la raíz del proyecto para gestionar los parámetros de conexión a la base de datos y la configuración del servicio de correo electrónico de forma segura.
-
-Crea un archivo `.env` en la raíz con la siguiente estructura:
+El proyecto cuenta con un archivo de variables de entorno (`.env`) situado en la raíz del proyecto para gestionar los parámetros de conexión a la base de datos y la configuración del servicio de correo electrónico de forma segura.
 
 ```env
 DB_HOST=127.0.0.1
