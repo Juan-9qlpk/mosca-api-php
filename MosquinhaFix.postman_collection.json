@@ -1,0 +1,1753 @@
+{
+  "info": {
+    "_postman_id": "b7afc831-b5bc-4991-8a0d-f16fd9bf8f9c",
+    "name": "MosquinhaFix2",
+    "description": "**Colección de postman del ejercicio de la mosca**\n\nEsta colección incluye\n\n\\-Metodos GET\n\n\\-Metodos POST\n\n\\-Metodos PUT\n\n\\-Metodos DELETE\n\nEsquema visual.\n\n```\nMosquinhaFix/\n│\n├── 📂 Metodos_GET/\n│   ├── 📁 ACCESO_DATOS_USUARIOS/\n│   │   ├── 📄 usuario (prueba permisos)      [GET /usuarios]\n│   │   ├── 📄 admin /usuarios                 [GET /usuarios/]\n│   │   ├── 📄 admin /usuarios/{id}            [GET /usuarios/2]\n│   │   ├── 📄 admin login invalido...         [GET /usuarios/]\n│   │   ├── 📄 admin /usuarios/{chubacas}      [GET /usuarios/chubacas]\n│   │   ├── 📄 user login invalido...          [GET /usuarios]\n│   │   └── 📄 url inválida                    [GET /obtenertodosloschubacas]\n│   │\n│   └── 📁 ACCESO_INTENTOS_TABLERO/\n│       ├── 📄 usuario con tablero pide...     [GET /intentos]\n│       ├── 📄 usuario sin tablero pide...     [GET /intentos]\n│       └── 📄 admin pide intentos             [GET /intentos/]\n│\n├── 📂 Metodos_POST/\n│   ├── 📁 LOGIN/\n│   │   ├── 📄 login                           [POST /login]\n│   │   └── 📄 login invalido                  [POST /login]\n│   │\n│   ├── 📁 REGISTRAR/\n│   │   ├── 📄 register                        [POST /registrar]\n│   │   ├── 📄 register usuario ya...          [POST /registrar]\n│   │   ├── 📄 registro invalido nombre...     [POST /registrar]\n│   │   ├── 📄 registro invalido email...      [POST /registrar]\n│   │   ├── 📄 registro invalido nombre vacio  [POST /registrar]\n│   │   ├── 📄 registro invalido email vacio   [POST /registrar]\n│   │   ├── 📄 registro invalido pass vacia    [POST /registrar]\n│   │   ├── 📄 registro invalido edad vacia    [POST /registrar]\n│   │   └── 📄 registro invalido email inv.    [POST /registrar]\n│   │\n│   ├── 📁 CREAR_TABLERO/\n│   │   ├── 📄 usuario crea tablero bien       [POST /crear]\n│   │   ├── 📄 usuario crea tablero mal        [POST /crear]\n│   │   ├── 📄 admin crea tablero              [POST /crear]\n│   │   └── 📄 usuario con tablero ya creado   [POST /crear]\n│   │\n│   ├── 📁 JUGAR/\n│   │   ├── 📄 usuario juega                   [POST /jugar]\n│   │   ├── 📄 usuario juega indexoutofbounds  [POST /jugar]\n│   │   ├── 📄 usuario juega params invalidos  [POST /jugar]\n│   │   └── 📄 admin juega                     [POST /jugar]\n│   │\n│   ├── 📁 RECUPERAR/\n│   │   ├── 📄 enviar email                    [POST /recuperar]\n│   │   ├── 📄 enviar mail, mail invalido      [POST /recuperar]\n│   │   ├── 📄 enviar mail, nombre no reg.     [POST /recuperar]\n│   │   └── 📄 enviar mail, email no reg.      [POST /recuperar]\n│   │\n│   └── 📁 ROL_CREAR_ROL/\n│       ├── 📄 usuario crea rol                [POST /rol]\n│       ├── 📄 admin crea rol                  [POST /rol]\n│       ├── 📄 admin crea rol ya existente     [POST /rol]\n│       └── 📄 admin crea rol invalido         [POST /rol]\n│\n├── 📂 Metodos_PUT/\n│   ├── 📁 MODIFICAR_USUARIOS/\n│   │   ├── 📄 admin otorga rol user           [PUT /usuarios/3]\n│   │   ├── 📄 admin otorga rol admin          [PUT /usuarios/3]\n│   │   ├── 📄 admin otorga rol inexistente    [PUT /usuarios/1]\n│   │   └── 📄 usuario intenta otorgar rol     [PUT /usuarios/3]\n│   │\n│   ├── 📁 RENDIRSE/\n│   │   ├── 📄 usuario con tablero se rinde    [PUT /rendirse]\n│   │   ├── 📄 usuario sin tablero se rinde    [PUT /rendirse]\n│   │   └── 📄 admin intenta rendirse          [PUT /rendirse]\n│   │\n│   └── 📁 PERFIL/\n│       ├── 📄 usuario actualizar contraseña   [PUT /perfil]\n│       └── 📄 usuario actualizar pass inv.    [PUT /perfil]\n│\n└── 📂 Metodos_DELETE/\n    ├── 📁 BORRAR_USUARIO/\n    │   ├── 📄 usuario borra usuario           [DELETE /usuarios/4]\n    │   ├── 📄 admin borra usuario             [DELETE /usuarios/20]\n    │   ├── 📄 admin borra cualquier cosa      [DELETE /usuarios/kjhkjk]\n    │   └── 📄 admin borra id inexistente      [DELETE /usuarios/80]\n    │\n    └── 📁 BORRAR_ROL/\n        ├── 📄 usuario borra rol               [DELETE /rol]\n        ├── 📄 admin borra rol                 [DELETE /rol]\n        └── 📄 admin borra rol inexistente     [DELETE /rol]\n\n ```",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+    "_exporter_id": "58149407",
+    "_collection_link": "https://go.postman.co/collection/58149407-b7afc831-b5bc-4991-8a0d-f16fd9bf8f9c?source=collection_link"
+  },
+  "item": [
+    {
+      "name": "Metodos_GET",
+      "item": [
+        {
+          "name": "ACCESO_DATOS_USUARIOS",
+          "item": [
+            {
+              "name": "usuario (prueba permisos)",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin /usuarios",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin /usuarios/{id}",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/2",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "2"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin login invalido en esta seccion",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepedmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin /usuarios/{chubacas}",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/chubacas",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "chubacas"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "user login invalido en esta seccion",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepepebe\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "url inválida",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/obtenertodosloschubacas",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "obtenertodosloschubacas"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "ACCESO_INTENTOS_TABLERO",
+          "item": [
+            {
+              "name": "usuario con tablero pide intentos",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/intentos",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "intentos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario sin tablero pide intentos",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepe2\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/intentos",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "intentos"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin pide intentos",
+              "request": {
+                "method": "GET",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/intentos/",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "intentos",
+                    ""
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metodos_POST",
+      "item": [
+        {
+          "name": "LOGIN",
+          "item": [
+            {
+              "name": "login",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/login",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "login invalido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeelmasplebeyo\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/login",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "login"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "REGISTRAR",
+          "item": [
+            {
+              "name": "register",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepebutaca\",\r\n    \"email\": \"butanerosexys@gmail.com\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "register usuario ya registrado",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepe2\",\r\n    \"email\": \"pepetijeras23@gmail.com\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "registro invalido nombre ya escogido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"email\": \"butanerosexys1@gmail.com\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "registro invalido email ya usado",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepelepepe\",\r\n    \"email\": \"pepetijeras23@gmail.com\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "registro invalido nombre vacio",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"\",\r\n    \"email\": \"butanerosexys58@gmail.com\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "registro invalido email vacio",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepebutaca58\",\r\n    \"email\": \"\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "registro invalido contraseña vacia",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepebutaca58\",\r\n    \"email\": \"butanerosexys58@gmail.com\",\r\n    \"pass\": \"\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "registro invalido edad vacia",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepebutaca58\",\r\n    \"email\": \"butanerosexys58@gmail.com\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "registro invalido email invalido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepebutaca58\",\r\n    \"email\": \"butanerosexys58@.com\",\r\n    \"pass\": \"prueba\",\r\n    \"edad\": \"58\"\r\n}\r\n",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/registrar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "registrar"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "CREAR_TABLERO",
+          "item": [
+            {
+              "name": "usuario crea tablero bien",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"tamano\": 5,\r\n    \"intentos\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/crear",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "crear"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario crea tablero mal",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepe2\",\r\n    \"pass\": \"prueba\",\r\n    \"tamano\": \"asd\",\r\n    \"intentos\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/crear",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "crear"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin crea tablero",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"tamano\": 5,\r\n    \"intentos\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/crear",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "crear"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario con tablero ya creado",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"tamano\": 5,\r\n    \"intentos\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/crear",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "crear"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "JUGAR",
+          "item": [
+            {
+              "name": "usuario juega",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"posicion\": 4\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/jugar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "jugar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario juega indexoutofbounds",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"posicion\": -1\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/jugar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "jugar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario juega insertando parametros invalidos",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"posicion\": null\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/jugar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "jugar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin juega",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"posicion\": 5\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/jugar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "jugar"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "RECUPERAR",
+          "item": [
+            {
+              "name": "enviar email (introduce el tuyo)",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"email\": \"{tucorreo}@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/recuperar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "recuperar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "enviar mail, mail invalido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"email\": \"@.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/recuperar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "recuperar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "enviar mail, nombre no registrado",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeteca\",\r\n    \"email\": \"{tu correo}\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/recuperar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "recuperar"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "enviar mail, email no registrado",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"email\": \"adlerholabuenosdiasxd@gmail.com\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/recuperar",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "recuperar"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "ROL_CREAR_ROL",
+          "item": [
+            {
+              "name": "usuario crea rol",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"peperoni\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rol",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rol"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin crea rol",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"peperoni\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rol",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rol"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin crea rol ya existente",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"user\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rol",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rol"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin crea rol invalido",
+              "request": {
+                "method": "POST",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": 2234\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rol",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rol"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metodos_PUT",
+      "item": [
+        {
+          "name": "MODIFICAR_USUARIOS",
+          "item": [
+            {
+              "name": "admin otorga rol user",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"user\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/3",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin otorga rol admin",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"admin\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/3",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin otorga rol inexistente",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"butanero\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/1",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "1"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario intenta otorgar rol",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"butanero\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/3",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "3"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "RENDIRSE",
+          "item": [
+            {
+              "name": "usuario con tablero se rinde",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rendirse",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rendirse"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario sin tablero se rinde",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepe2\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rendirse",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rendirse"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin intenta rendirse",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rendirse",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rendirse"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "PERFIL",
+          "item": [
+            {
+              "name": "usuario actualizar contraseña",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepe2\",\r\n    \"email\": \"pepetijeras23@gmail.com\",\r\n    \"passNueva\": \"pepe2\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/perfil",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "perfil"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "usuario actualizar contraseña invalido",
+              "request": {
+                "method": "PUT",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepe2\",\r\n    \"email\": \"pepetijeras23@gmail.com\",\r\n    \"passNueva\": \"\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/perfil",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "perfil"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Metodos_DELETE",
+      "item": [
+        {
+          "name": "BORRAR_USUARIO",
+          "item": [
+            {
+              "name": "usuario borra usuario",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/4",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "4"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin borra usuario",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/20",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "20"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin borra cualquier cosa",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/kjhkjk",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "kjhkjk"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin borra por id inexistente",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/usuarios/80",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "usuarios",
+                    "80"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        },
+        {
+          "name": "BORRAR_ROL",
+          "item": [
+            {
+              "name": "usuario borra rol",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeplebe\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\": \"peperoni\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rol",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rol"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin borra rol",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\":  \"peperoni\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rol",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rol"
+                  ]
+                }
+              },
+              "response": []
+            },
+            {
+              "name": "admin borra por rol inexistente",
+              "request": {
+                "method": "DELETE",
+                "header": [],
+                "body": {
+                  "mode": "raw",
+                  "raw": "{\r\n    \"nombre\": \"pepeadmin\",\r\n    \"pass\": \"prueba\",\r\n    \"rol\":  \"batuta\"\r\n}",
+                  "options": {
+                    "raw": {
+                      "language": "json"
+                    }
+                  }
+                },
+                "url": {
+                  "raw": "http://127.0.0.1:5000/rol",
+                  "protocol": "http",
+                  "host": [
+                    "127",
+                    "0",
+                    "0",
+                    "1"
+                  ],
+                  "port": "5000",
+                  "path": [
+                    "rol"
+                  ]
+                }
+              },
+              "response": []
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
