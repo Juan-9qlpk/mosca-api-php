@@ -45,7 +45,7 @@ MAIL_PROPIO=
 * **MAIL_PROPIO**: Dirección de correo electrónico configurada como remitente para el envío de notificaciones automáticas a los usuarios.
 
 
-## 1. Lógica y Funcionamiento del Juego
+## Lógica y Funcionamiento del Juego
 
 El sistema implementa el desarrollo de partidas sobre un tablero unidimensional gestionado a través de las peticiones de los usuarios autenticados:
 
@@ -70,7 +70,7 @@ El sistema implementa el desarrollo de partidas sobre un tablero unidimensional 
 
 ---
 
-## 2. Control de Acceso por Roles (`ADMIN` vs `USER`)
+## Control de Acceso por Roles
 
 La API protege las rutas mediante validaciones lógicas en los controladores (`comprobarUsuario` y `comprobarAdmin`), segmentando las capacidades de cada perfil según su identificador en la base de datos:
 
@@ -86,4 +86,4 @@ La API protege las rutas mediante validaciones lógicas en los controladores (`c
     * Modificación dinámica de roles y datos de usuarios (`PUT /usuarios/{id}`).
     * Eliminación segura de usuarios (`DELETE /usuarios/{id}`).
     * Creación y borrado de roles personalizados en el sistema (`POST /rol` y `DELETE /rol`).
-    * **Restricciones:** No posee privilegios para jugar, crear tableros o rendirse.
+  * **Restricciones:** No posee privilegios para jugar, crear tableros o rendirse.
